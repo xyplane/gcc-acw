@@ -1,0 +1,21 @@
+#!/bin/bash
+PROGARGS=();
+PROGSUFFIX="-0.0.0";
+for ARG in "$@"; do
+	if [ "${NEXT}" == "-arch" ]; then
+		if [ "${ARG}" == "i386" ]; then
+			PROGARGS+=("-m32");
+		elif [ "${ARG}" == "x86_64" ]; then
+			PROGARGS+=("-m64");
+		else
+			PROGARGS+=("${NEXT}" "$ARG");
+		fi
+		unset NEXT
+	elif [ "${ARG}" == "-arch" ]; then
+		NEXT="${ARG}";
+	else
+		echo "Append"
+		PROGARGS+=("${ARG}");
+	fi
+done
+exec "${0}${PROGSUFFIX}" "${PROGARGS[@]}";

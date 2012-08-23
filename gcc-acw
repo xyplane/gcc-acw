@@ -1,6 +1,8 @@
 #!/bin/bash
 PROGARGS=();
-PROGSUFFIX="-0.0.0";
+DIRNAME=`dirname "$0"`;
+BASENAME=`basename "$0"`;
+PROGNAME="${DIRNAME}/${BASENAME/-acw/}"
 for ARG in "$@"; do
 	if [ "${NEXT}" == "-arch" ]; then
 		if [ "${ARG}" == "i386" ]; then
@@ -17,4 +19,4 @@ for ARG in "$@"; do
 		PROGARGS+=("${ARG}");
 	fi
 done
-exec "${0}${PROGSUFFIX}" "${PROGARGS[@]}";
+exec "${PROGNAME}" "${PROGARGS[@]}";

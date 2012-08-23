@@ -1,6 +1,6 @@
 #!/bin/bash
 PROGARGS=();
-PROGNAME="gcc";
+PROGNAME="g++";
 DIRNAME=`dirname "$0"`;
 ## The algorithm is identicaly between gcc and g++, therefore  ##
 ## a change to one unsually requires a change to the other!    ##

@@ -14,7 +14,6 @@ for ARG in "$@"; do
 	elif [ "${ARG}" == "-arch" ]; then
 		NEXT="${ARG}";
 	else
-		echo "Append"
 		PROGARGS+=("${ARG}");
 	fi
 done
